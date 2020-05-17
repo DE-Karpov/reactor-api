@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: 'postgres'
+    password: 'dek-IT2077'
+    driver-class-name: org.postgresql.Driver
+    url: 'jdbc:postgresql://localhost:5432/javalab'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation=true: true

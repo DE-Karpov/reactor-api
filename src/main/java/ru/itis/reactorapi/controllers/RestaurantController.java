@@ -1,30 +1,29 @@
 package ru.itis.reactorapi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
-import ru.itis.reactorapi.entries.JobStatistic;
-import ru.itis.reactorapi.services.JobService;
+import ru.itis.reactorapi.entries.RestaurantStatistic;
+import ru.itis.reactorapi.services.RestaurantService;
 
 @RestController
-@RequestMapping("/job-management")
-public class JobController {
+@RequestMapping("/restaurant-management")
+public class RestaurantController {
 
     @Autowired
-    private JobService jobService;
+    private RestaurantService restaurantService;
 
     @GetMapping(value = "/records", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<JobStatistic> getAll() {
-        return jobService.getAll();
+    public Flux<RestaurantStatistic> getAll() {
+        return restaurantService.getAll();
     }
 
     @GetMapping(value = "/records/db")
     public void saveAll() {
-        jobService.saveAll();
+        restaurantService.saveAll();
     }
 
 }
