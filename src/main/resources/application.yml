@@ -1,4 +1,9 @@
+server:
+  port: 80
+
 spring:
+  application:
+    name: 'restaurant_service'
   datasource:
     username: 'postgres'
     password: 'dek-IT2077'
@@ -13,3 +18,10 @@ spring:
         jdbc:
           lob:
             non_contextual_creation=true: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: 'http://localhost:9000/eureka'
+  instance:
+    prefer-ip-address: true
